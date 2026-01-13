@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Personaje 3D GLB - GitHub Modules</title>
+<title>Personaje 3D GLB - GitHub Pages</title>
 <style>
 body { margin:0; overflow:hidden; background:#000; }
 canvas { display:block; }
@@ -11,6 +11,7 @@ canvas { display:block; }
 <body>
 
 <script type="module">
+// Importar Three.js y módulos modernos
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/loaders/GLTFLoader.js';
@@ -46,8 +47,8 @@ let character;
 const loader = new GLTFLoader();
 loader.load('man.glb', (gltf)=>{
     character = gltf.scene;
-    character.scale.set(0.3,0.3,0.3);
-    character.position.y = 0.3;
+    character.scale.set(0.3,0.3,0.3); // personaje pequeño
+    character.position.y = 0.3;       // un poco por encima del piso
     scene.add(character);
 }, undefined, (err)=>console.error('Error cargando GLB:', err));
 
@@ -84,7 +85,7 @@ function animate(){
 }
 animate();
 
-// resize
+// Ajustar al tamaño de la ventana
 window.addEventListener('resize', ()=>{
     camera.aspect = window.innerWidth/window.innerHeight;
     camera.updateProjectionMatrix();
